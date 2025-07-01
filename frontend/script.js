@@ -131,7 +131,7 @@ async function getFeedback(question, answer, container) {
   feedbackDiv.innerText = "Analyzing your answer with AI...";
 
   try {
-    const response = await fetch("http://localhost:5000/api/get-feedback", {
+    const response = await fetch("https://interviewer-ai-u43y.onrender.com/api/get-feedback", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question, answer })
@@ -147,7 +147,7 @@ async function getFeedback(question, answer, container) {
 
 async function payWithRazorpay() {
   try {
-    const res = await fetch("http://localhost:5000/api/create-order", { method: "POST" });
+    const res = await fetch("https://interviewer-ai-u43y.onrender.com/api/create-order", { method: "POST" });
     const order = await res.json();
 
     const options = {
@@ -222,7 +222,7 @@ async function submitAnswer() {
 
   // Send to backend for feedback
   try {
-    const response = await fetch("http://localhost:5000/api/analyze-answer", {
+    const response = await fetch("https://interviewer-ai-u43y.onrender.com/api/analyze-answer", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
